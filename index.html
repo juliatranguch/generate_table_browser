@@ -9,7 +9,7 @@
                     html = html + '<tr>';
 
                     for (let columnNumber of Array(columns).keys()) {
-                        html = html + `<td>${rowNumber *columnNumber}</td>`;
+                        html = html + `<td>${(rowNumber + 1) * (columnNumber + 1)}</td>`;
                     }
 
                     html = html + '</tr>';
@@ -27,9 +27,14 @@
                 let rows = Number(rowsInput);
                 let columns = Number(columnsInput);
 
-                let tableHTML = createMultiplicationTable(rows, columns);
+                if (!isNaN(rows) && !isNan(columns)) {
+                    let tableHTML = createMultiplicationTable(rows, columns);
+                    document.write(tableHTML);
+                } else {
+                    alert("Error! Invalid input.")
+                }
 
-                document.write(tableHTML);
+                
             }
         </script>
     </head>
